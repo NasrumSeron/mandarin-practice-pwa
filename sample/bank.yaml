@@ -1,0 +1,97 @@
+# Sample content, written for this repo. Replace it with your own.
+# Only `phrases` is required; everything else is optional.
+meta:
+  version: 1
+  leitner_days: [1, 2, 4, 8, 16]   # review gap per Leitner box
+
+topics:
+  - {id: my-phrases, en: "My phrases", zh: "", chapter: "Everyday"}
+  - {id: basics,     en: "Basics",     zh: "基础", chapter: "Everyday"}
+  - {id: food,       en: "Food and drink", zh: "饮食", chapter: "Out and about"}
+
+grammar:
+  - id: g-ma
+    type: question
+    pattern: "statement + 吗 ma?"
+    rule: "Adding 吗 to the end of a statement turns it into a yes/no question."
+    example: "你好吗？ Nǐ hǎo ma?"
+  - id: g-yao
+    type: pattern
+    pattern: "我要 + noun"
+    rule: "我要 means 'I want' and is the plain way to order something."
+    example: "我要茶。 Wǒ yào chá."
+
+# Put new phrases at the END of the file: appending an entry is all it takes.
+phrases:
+  - id: p-hello
+    kind: phrase
+    en: "Hello."
+    zh: "你好。"
+    py: "Nǐ hǎo."
+    tags: [my-phrases, basics]
+    check: verified
+    words: ["你|nǐ|you", "好|hǎo|good", "你好|nǐ hǎo|hello"]
+    grammar: []
+  - id: p-howareyou
+    kind: phrase
+    en: "How are you?"
+    zh: "你好吗？"
+    py: "Nǐ hǎo ma?"
+    tags: [basics]
+    check: verified
+    words: ["吗|ma|(question particle)"]
+    grammar: [g-ma]
+  - id: p-thanks
+    kind: word
+    en: "Thank you."
+    zh: "谢谢。"
+    py: "Xiè xiè."
+    tags: [my-phrases, basics]
+    check: verified
+    words: ["谢谢|xiè xiè|thank you"]
+    grammar: []
+  - id: p-morning
+    kind: phrase
+    en: "Good morning."
+    zh: "早上好。"
+    py: "Zǎo shang hǎo."
+    tags: [basics]
+    check: verified
+    words: ["早上|zǎo shang|morning"]
+    grammar: []
+  - id: p-tea
+    kind: phrase
+    en: "I want a cup of tea."
+    zh: "我要一杯茶。"
+    py: "Wǒ yào yì bēi chá."
+    tags: [food]
+    check: verified
+    words: ["我|wǒ|I", "要|yào|want", "一杯|yì bēi|a cup of", "茶|chá|tea"]
+    grammar: [g-yao]
+  - id: p-coffee
+    kind: phrase
+    en: "Please give me a coffee."
+    zh: "请给我一杯咖啡。"
+    py: "Qǐng gěi wǒ yì bēi kā fēi."
+    tags: [food]
+    check: verified
+    words: ["请|qǐng|please", "给|gěi|give", "咖啡|kā fēi|coffee"]
+    grammar: []
+  - id: p-price
+    kind: phrase
+    en: "How much is this?"
+    zh: "这个多少钱？"
+    py: "Zhè ge duō shao qián?"
+    tags: [food, my-phrases]
+    check: verified
+    words: ["这个|zhè ge|this one", "多少|duō shao|how many / how much", "钱|qián|money"]
+    grammar: []
+  - id: p-numbers
+    kind: word
+    en: "One, two, three."
+    zh: "一、二、三。"
+    py: "Yī, èr, sān."
+    tags: [basics]
+    check: verified
+    words: ["一|yī|one", "二|èr|two", "三|sān|three"]
+    grammar: []

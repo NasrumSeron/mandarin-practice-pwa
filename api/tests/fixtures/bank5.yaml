@@ -1,0 +1,58 @@
+meta:
+  version: 1
+  updated: 2026-01-01
+grammar:
+  - id: g-ma
+    type: grammar
+    pattern: "statement + 吗 ma?"
+    rule: "Adding 吗 makes a yes/no question"
+    example: "你好吗？"
+phrases:
+  - id: t1
+    en: "Thank you."
+    zh: "谢谢。"
+    py: "Xièxiè."
+    tags: [basic]
+    status: known
+    check: verified
+    words: ["谢谢|xièxiè|thank you"]
+    grammar: []
+  - id: t2
+    en: "Are you well?"
+    zh: "你好吗？"
+    py: "Nǐ hǎo ma?"
+    tags: [basic]
+    status: known
+    check: verified
+    sg: true
+    ear: "Ni hao ma"
+    words: ["你好|nǐ hǎo|hello", "吗|ma|(question)"]
+    grammar: [g-ma]
+  - id: t3
+    en: "Hello again."
+    zh: "你好。"
+    py: "Nǐ hǎo."
+    tags: [basic, pending-tag]
+    status: learning
+    check: pending
+    future_field: ignored
+    words: ["你好|nǐ hǎo|hello (dup)"]
+    grammar: []
+  - id: t4
+    en: "Flagged one."
+    zh: "不对。"
+    py: "Bú duì."
+    tags: [flagged-tag]
+    status: learning
+    check: flagged
+    words: ["不对|bú duì|wrong"]
+    grammar: []
+  - id: t5
+    en: "Thanks, good."
+    zh: "谢谢，好。"
+    py: "Xièxiè, hǎo."
+    tags: [basic]
+    status: learning
+    check: verified
+    words: ["谢谢|xièxiè|thanks (dup)", "好|hǎo|good"]
+    grammar: []

@@ -1,0 +1,30 @@
+# mandarin-api: the Mandarin practice app's backend.
+# Reached only through the web nginx (/api/mandarin/ on mandarin.example.com).
+#
+# NO PUBLISHED PORTS, and this is load-bearing: the identity header
+# (Cf-Access-Authenticated-User-Email) is trustworthy only while the auth proxy
+# is the sole thing that can reach nginx -> this service. Publishing a port
+# turns that header into a request parameter anyone who can reach it can set.
+# See app/identity.py.
+services:
+  mandarin-api:
+    build: .
+    container_name: mandarin-api
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      # Named volume keeps ownership correct for the non-root container user.
+      - mandarin-data:/app/data
+      # Point this at a folder that holds bank.yaml (e.g. a synced cloud-drive folder).
+      - ./bank:/bank:ro
+    networks:
+      - proxy-net
+    # no ports: see above
+
+volumes:
+  mandarin-data:
+
+networks:
+  # The Docker network the nginx container is also on.
+  proxy-net:
+    external: true
